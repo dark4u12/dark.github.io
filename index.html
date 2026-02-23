@@ -3,50 +3,236 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Premium Videos Hub</title>
+  <title>Exclusive Premium Videos 🔥 Secret Access</title>
   <style>
-    body { font-family: Arial; margin:0; background:#000; color:#fff; text-align:center; padding:20px; }
-    h1 { color:#ff0066; }
-    video { max-width:100%; border-radius:10px; margin:20px 0; }
-    .price { background:#222; padding:20px; margin:20px; border-radius:10px; }
-    button { background:#ff0066; color:white; padding:15px 30px; border:none; font-size:1.2em; border-radius:8px; }
+    :root {
+      --bg: #0a0a0a;
+      --text: #ffffff;
+      --accent: #ff0066; /* Hot seductive pink */
+      --accent-glow: #ff3366;
+      --card-bg: #111111;
+      --shadow: 0 0 20px rgba(255, 0, 102, 0.3);
+    }
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      text-align: center;
+      line-height: 1.6;
+    }
+    header {
+      padding: 80px 20px 60px;
+      background: linear-gradient(to bottom, #000000, var(--bg));
+    }
+    h1 {
+      font-size: 3.5em;
+      margin: 0;
+      color: var(--accent);
+      text-shadow: 0 0 15px var(--accent-glow);
+    }
+    .tagline {
+      font-size: 1.5em;
+      margin: 20px 0;
+      color: #ddd;
+      font-style: italic;
+    }
+    .seduce-text {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      font-size: 1.3em;
+      color: #ccc;
+    }
+    .highlight {
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* Demo Videos Section */
+    .demo-section {
+      padding: 60px 20px;
+      background: var(--card-bg);
+    }
+    .demo-section h2 {
+      font-size: 2.8em;
+      color: var(--accent);
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px var(--accent-glow);
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .video-card {
+      background: #1a1a1a;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .video-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px rgba(255, 0, 102, 0.5);
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .video-title {
+      padding: 15px;
+      margin: 0;
+      font-size: 1.2em;
+      background: rgba(0,0,0,0.5);
+    }
+
+    /* Subscription Section */
+    .subscribe-section {
+      padding: 80px 20px;
+      background: linear-gradient(to top, #000000, var(--bg));
+    }
+    .subscribe-section h2 {
+      font-size: 3em;
+      color: var(--accent);
+      margin-bottom: 30px;
+    }
+    .price-card {
+      background: var(--card-bg);
+      border: 2px solid var(--accent);
+      border-radius: 20px;
+      padding: 40px 20px;
+      max-width: 400px;
+      margin: 0 auto 40px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s;
+    }
+    .price-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(255, 0, 102, 0.6);
+    }
+    .price {
+      font-size: 2.5em;
+      color: var(--accent);
+      margin: 20px 0;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 18px 50px;
+      font-size: 1.4em;
+      text-decoration: none;
+      border-radius: 50px;
+      box-shadow: 0 0 20px var(--accent-glow);
+      transition: all 0.3s;
+      margin: 20px 0;
+    }
+    .btn:hover {
+      background: var(--accent-glow);
+      transform: scale(1.1);
+      box-shadow: 0 0 40px var(--accent);
+    }
+
+    @media (min-width: 600px) {
+      .video-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 900px) {
+      .video-grid { grid-template-columns: repeat(3, 1fr); }
+    }
   </style>
 </head>
 <body>
-  <h1>Premium Videos Subscription 🔥</h1>
-  <p>Exclusive Content – Sirf True Fans Ke Liye!</p>
 
-  <video controls>
-    <source src="https://example.com/teaser.mp4" type="video/mp4"> <!-- Yahan short teaser link daal (YouTube ya Vimeo se embed) -->
-    Browser video nahi chala raha.
-  </video>
+  <!-- Premium Subscription Intro -->
+  <header>
+    <h1>Premium Exclusive Videos</h1>
+    <p class="tagline">Sirf Kuch Logon Ke Liye... Kya Tu Ready Hai?</p>
+    <div class="seduce-text">
+      Andar ka raaz jo bahar nahi aata... <span class="highlight">HD mein garam garam clips</span>, weekly naye surprises, aur wo sab jo tu soch bhi nahi sakta. <br><br>
+      Yeh nahi hai free wala maza — yeh hai <span class="highlight">real premium seduction</span>. Ek baar taste kar liya, toh wapas nahi ja payega. 🔥💋
+    </div>
+  </header>
 
-  <div class="price">
-    <h2>Monthly Plan</h2>
-    <p>₹499 / mahina</p>
-    <ul style="list-style:none; padding:0;">
-      <li>HD Videos</li>
-      <li>Weekly New Uploads</li>
-      <li>Private Access</li>
-    </ul>
-      <!-- Demo Video Section -->
-<section style="margin: 30px 0;">
-  <h2>Demo / Teaser Dekho 🔥</h2>
-  
-  </iframe>
-  <p>Full HD content members ke liye!</p>
-</section>
-<!-- Subscribe Button with Telegram -->
-<button onclick="window.location.href='https://t.me/yourusername';" 
-        style="background:#0088cc; color:white; padding:15px 40px; font-size:1.2em; border:none; border-radius:8px; cursor:pointer;">
-  Telegram pe Join / Subscribe Karo
-</button>
+  <!-- Demo Videos -->
+  <section class="demo-section">
+    <h2>Thoda Sa Taste Le Lo... 😈</h2>
+    <div class="video-grid">
 
-  </div>
+      <!-- Video 1 -->
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" title="Teaser 1" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p class="video-title">Secret Teaser 1 – Garam Shuruaat</p>
+      </div>
 
-<a href="https://t.me/yourbotusername?start=premiumaccess" 
-   style="display:inline-block; background:#0088cc; color:white; padding:15px 40px; font-size:1.3em; text-decoration:none; border-radius:10px; margin:20px;">
-  Abhi Bot Kholo aur Videos Paao!
-</a>
+      <!-- Video 2 -->
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="Teaser 2" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p class="video-title">Teaser 2 – Dil Ko Chhu Jaaye</p>
+      </div>
+
+      <!-- Video 3 -->
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="Teaser 3" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p class="video-title">Teaser 3 – Aur Zyada Chahiye?</p>
+      </div>
+
+      <!-- Video 4 -->
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" title="Teaser 4" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p class="video-title">Teaser 4 – Last Temptation</p>
+      </div>
+
+      <!-- Video 5 (Optional – agar nahi chahiye toh pura div delete kar dena) -->
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_5" title="Teaser 5" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p class="video-title">Bonus Teaser – Sirf Members Ke Liye</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Subscription Call to Action -->
+  <section class="subscribe-section">
+    <h2>Ab Full Access Chahiye? 💦</h2>
+    <div class="price-card">
+      <h3>Premium Subscription</h3>
+      <p class="price">₹499 / Month</p>
+      <ul style="list-style:none; padding:0; font-size:1.2em; margin:20px 0;">
+        <li>Unlimited HD Videos</li>
+        <li>Weekly Fresh Content</li>
+        <li>Private & Exclusive Only</li>
+        <li>Instant Bot Delivery 🔥</li>
+      </ul>
+      <a href="https://t.me/YOUR_TG_USERNAME_OR_BOT?start=premium" class="btn">
+        Abhi Join Karo @YOUR_TG_USERNAME
+      </a>
+      <p style="font-size:1.1em; color:#ccc;">Telegram bot pe click kar – videos direct tere paas! 😏</p>
+    </div>
+  </section>
+
+  <footer style="padding:40px; background:#000; font-size:0.9em;">
+    © 2026 Exclusive Premium – All Rights Reserved | 18+ Only
+  </footer>
+
 </body>
 </html>
