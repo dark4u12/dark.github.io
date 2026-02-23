@@ -3,223 +3,344 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dark4U Premium Subscription</title>
+  <title>Dark4U Premium – Exclusive Access</title>
   <style>
     :root {
-      --bg: #0a0a0a;
-      --card-bg: #111111;
-      --text: #f5f5f5;
-      --text-light: #cccccc;
+      --bg: #050505;
+      --card-bg: rgba(20, 20, 30, 0.45);
+      --text: #f0f0f5;
+      --text-light: #b0b0c0;
       --accent: #3b82f6;
-      --accent-hover: #60a5fa;
-      --glow: 0 0 15px rgba(59, 130, 246, 0.3);
-      --shadow: 0 4px 20px rgba(0,0,0,0.6);
+      --accent-glow: #60a5fa;
+      --neon: #00f0ff;
+      --glow: 0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(0, 240, 255, 0.25);
+      --shadow: 0 12px 40px rgba(0,0,0,0.7);
+      --blur: blur(16px);
     }
+
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.7;
+      overflow-x: hidden;
     }
+
     header {
-      padding: 100px 20px 60px;
+      padding: 140px 20px 80px;
       text-align: center;
+      background: linear-gradient(to bottom, #0a0a1f, #050505);
     }
+
     h1 {
-      font-size: clamp(2.8em, 9vw, 4em);
-      font-weight: 800;
-      margin-bottom: 0.5em;
+      font-size: clamp(3.2em, 10vw, 5.2em);
+      font-weight: 900;
+      letter-spacing: -2px;
+      background: linear-gradient(90deg, #60a5fa, #a5b4fc, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.4em;
+      animation: titleGlow 4s ease-in-out infinite alternate;
     }
+
+    @keyframes titleGlow {
+      0% { text-shadow: 0 0 20px rgba(96,165,250,0.6); }
+      100% { text-shadow: 0 0 40px rgba(165,180,252,0.9); }
+    }
+
     .tagline {
-      font-size: clamp(1.4em, 5vw, 1.8em);
+      font-size: clamp(1.6em, 6vw, 2.2em);
       color: var(--text-light);
-      margin-bottom: 2em;
+      margin-bottom: 1.5em;
+      opacity: 0.9;
     }
+
     .intro {
-      max-width: 900px;
-      margin: 0 auto 3em;
-      font-size: clamp(1.1em, 4vw, 1.3em);
+      max-width: 960px;
+      margin: 0 auto 4em;
+      font-size: clamp(1.2em, 4.5vw, 1.45em);
       color: var(--text-light);
     }
 
     .card {
       background: var(--card-bg);
-      border-radius: 16px;
+      border-radius: 20px;
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+      border: 1px solid rgba(96, 165, 250, 0.18);
       box-shadow: var(--shadow);
-      padding: 1.5em;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(59, 130, 246, 0.15);
+      padding: 2em;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      opacity: 0;
+      transform: translateY(40px);
     }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-12px) scale(1.03);
       box-shadow: var(--glow);
-      border-color: var(--accent-hover);
+      border-color: var(--accent-glow);
     }
 
     /* Demo Section */
     .demo-section {
-      padding: 60px 20px;
+      padding: 100px 20px;
+      background: linear-gradient(to bottom, #050505, #0f0f1f);
     }
+
     .demo-section h2 {
       text-align: center;
-      font-size: clamp(2em, 7vw, 3em);
-      margin-bottom: 2.5em;
+      font-size: clamp(2.8em, 8vw, 4em);
+      margin-bottom: 3em;
       color: var(--accent);
+      text-shadow: 0 0 30px rgba(59,130,246,0.4);
     }
+
     .video-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 2em;
-      max-width: 1200px;
+      gap: 2.5em;
+      max-width: 1300px;
       margin: 0 auto;
     }
+
+    .video-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+    }
+
     .video-wrapper {
       position: relative;
       padding-bottom: 56.25%;
-      border-radius: 12px;
-      overflow: hidden;
       background: #000;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: inset 0 0 30px rgba(0,0,0,0.8);
     }
+
     video {
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
       object-fit: cover;
+      transition: transform 0.6s ease;
     }
+
+    .video-card:hover video {
+      transform: scale(1.08);
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .video-card:hover .overlay {
+      opacity: 1;
+    }
+
     .preview-btn {
       display: block;
       width: 100%;
-      margin-top: 1em;
-      background: var(--accent);
+      margin-top: 1.2em;
+      background: linear-gradient(90deg, var(--accent), var(--accent-glow));
       color: white;
-      padding: 0.8em;
-      font-size: 1.1em;
-      font-weight: bold;
+      padding: 1em;
+      font-size: 1.2em;
+      font-weight: 700;
       text-align: center;
       text-decoration: none;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-    }
-    .preview-btn:hover {
-      background: var(--accent-hover);
-      box-shadow: var(--glow);
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(59,130,246,0.35);
+      transition: all 0.4s ease;
     }
 
-    /* Pricing Section */
+    .preview-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(96,165,250,0.6);
+      background: linear-gradient(90deg, var(--accent-glow), var(--accent));
+    }
+
+    /* Pricing */
     .pricing-section {
-      padding: 80px 20px;
+      padding: 100px 20px;
       text-align: center;
     }
+
     .pricing-section h2 {
-      font-size: clamp(2.5em, 8vw, 3.5em);
-      margin-bottom: 2em;
+      font-size: clamp(3em, 9vw, 4.5em);
+      margin-bottom: 3em;
       color: var(--accent);
+      text-shadow: 0 0 35px rgba(59,130,246,0.5);
     }
+
     .price-card .card {
-      max-width: 420px;
+      max-width: 480px;
       margin: 0 auto;
     }
+
     .price {
-      font-size: clamp(2.5em, 8vw, 3.5em);
+      font-size: clamp(3.5em, 10vw, 5em);
       font-weight: 900;
-      color: var(--accent-hover);
-      margin: 1em 0;
+      color: var(--neon);
+      margin: 1.2em 0;
+      animation: pulsePrice 3s infinite alternate;
     }
+
+    @keyframes pulsePrice {
+      0% { text-shadow: 0 0 20px rgba(0,240,255,0.5); }
+      100% { text-shadow: 0 0 50px rgba(0,240,255,0.9); }
+    }
+
     .features {
       list-style: none;
-      font-size: 1.2em;
-      margin: 2em 0;
+      font-size: 1.25em;
+      margin: 2.5em 0;
     }
+
     .features li {
-      margin: 0.8em 0;
+      margin: 1em 0;
+      position: relative;
+      padding-left: 1.8em;
     }
+
+    .features li::before {
+      content: "✦";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      font-size: 1.1em;
+    }
+
     .btn {
       display: inline-block;
-      background: var(--accent);
+      background: linear-gradient(45deg, #3b82f6, #8b5cf6);
       color: white;
-      padding: 1em 3em;
-      font-size: 1.4em;
-      font-weight: bold;
+      padding: 1.2em 3.5em;
+      font-size: 1.5em;
+      font-weight: 800;
       text-decoration: none;
-      border-radius: 50px;
-      transition: all 0.3s ease;
+      border-radius: 60px;
+      box-shadow: 0 10px 30px rgba(59,130,246,0.4);
+      transition: all 0.45s cubic-bezier(0.23,1,0.32,1);
+      position: relative;
+      overflow: hidden;
     }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: linear-gradient(transparent, rgba(255,255,255,0.3), transparent);
+      transform: translateY(-100%) rotate(45deg);
+      transition: all 0.6s;
+    }
+
+    .btn:hover::before {
+      transform: translateY(100%) rotate(45deg);
+    }
+
     .btn:hover {
-      background: var(--accent-hover);
-      box-shadow: var(--glow);
-      transform: translateY(-3px);
+      transform: translateY(-6px) scale(1.05);
+      box-shadow: 0 20px 50px rgba(59,130,246,0.7);
     }
+
     .note {
-      margin-top: 1.5em;
-      font-size: 1.1em;
+      margin-top: 2em;
+      font-size: 1.15em;
       color: var(--text-light);
     }
 
-    /* Testimonials Section */
+    /* Testimonials */
     .testimonials-section {
-      padding: 80px 20px;
-      background: linear-gradient(to bottom, #0a0a0a, #111111);
+      padding: 100px 20px;
+      background: linear-gradient(to bottom, #0a0a1a, #050505);
     }
+
     .testimonials-section h2 {
       text-align: center;
-      font-size: clamp(2.5em, 8vw, 3.5em);
-      margin-bottom: 2.5em;
+      font-size: clamp(3em, 8vw, 4.2em);
+      margin-bottom: 3.5em;
       color: var(--accent);
     }
+
     .testimonials-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 2em;
-      max-width: 1200px;
+      gap: 2.5em;
+      max-width: 1300px;
       margin: 0 auto;
     }
+
     .testimonial-card {
       background: var(--card-bg);
-      border-radius: 16px;
-      padding: 1.8em;
-      border: 1px solid rgba(59, 130, 246, 0.2);
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+      border-radius: 20px;
+      padding: 2.2em;
+      border: 1px solid rgba(96,165,250,0.15);
       position: relative;
-      display: flex;
-      flex-direction: column;
+      transition: all 0.5s ease;
     }
+
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--glow);
+    }
+
     .testimonial-card::before {
       content: '“';
-      font-size: 6em;
+      font-size: 8em;
       color: var(--accent);
-      opacity: 0.15;
+      opacity: 0.12;
       position: absolute;
-      top: -0.2em;
-      left: 0.5em;
+      top: -0.3em;
+      left: 0.4em;
       line-height: 1;
     }
+
     .testimonial-header {
       display: flex;
       align-items: center;
-      margin-bottom: 1em;
+      margin-bottom: 1.4em;
     }
+
     .avatar {
-      width: 60px;
-      height: 60px;
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid var(--accent);
-      margin-right: 1em;
-      box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+      border: 3px solid var(--accent);
+      margin-right: 1.2em;
+      box-shadow: 0 0 20px rgba(59,130,246,0.5);
     }
+
     .testimonial-text {
-      font-size: 1.15em;
-      margin-bottom: 1em;
+      font-size: 1.2em;
+      margin-bottom: 1.2em;
       font-style: italic;
       color: var(--text-light);
       flex-grow: 1;
     }
+
     .testimonial-author {
-      font-weight: bold;
-      color: var(--accent-hover);
+      font-weight: 700;
+      color: var(--accent-glow);
       text-align: right;
       margin-top: auto;
     }
+
     .testimonial-author span {
       color: var(--text-light);
       font-weight: normal;
@@ -230,50 +351,41 @@
     @media (min-width: 640px) { 
       .video-grid, .testimonials-grid { grid-template-columns: repeat(2, 1fr); } 
     }
+
     @media (min-width: 1024px) { 
       .video-grid, .testimonials-grid { grid-template-columns: repeat(3, 1fr); } 
+      header { padding-top: 160px; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Dark4U Premium Subscription</h1>
-    <p class="tagline">Exclusive Access to Premium Content</p>
+    <h1>Dark4U Premium</h1>
+    <p class="tagline">Unlock the Ultimate Exclusive Experience</p>
     <div class="intro">
-      Join our premium subscription for unlimited access to high-quality exclusive videos. Get new content regularly, private delivery, and instant unlocks.
+      Premium members get unlimited access to high-quality, handpicked exclusive content. Fresh drops every week, 100% private bot delivery, HD/4K streaming, zero ads, instant unlocks.
     </div>
   </header>
 
   <section class="demo-section">
-    <h2>Preview Our Content</h2>
+    <h2>Content Previews</h2>
     <div class="video-grid">
 
-      <div>
+      <div class="video-card">
         <div class="card">
           <div class="video-wrapper">
             <video controls preload="metadata">
               <source src="YOUR_DEMO_LINK_1.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
+            <div class="overlay"></div>
           </div>
-          <a href="https://t.me/Dark4u12_bot?start=BQADAQADpQkAAkfc0EQLQvspV391yBYE" class="preview-btn">Preview 1</a>
+          <a href="https://t.me/Dark4u12_bot?start=BQADAQADpQkAAkfc0EQLQvspV391yBYE" class="preview-btn">Watch Preview 1</a>
         </div>
       </div>
 
-      <!-- Agar aur previews add karna hai to yahan copy-paste kar dena -->
-      <!-- Example:
-      <div>
-        <div class="card">
-          <div class="video-wrapper">
-            <video controls preload="metadata">
-              <source src="YOUR_DEMO_LINK_2.mp4" type="video/mp4">
-            </video>
-          </div>
-          <a href="YOUR_PREVIEW_LINK" class="preview-btn">Preview 2</a>
-        </div>
-      </div>
-      -->
+      <!-- Add more video cards here as needed -->
 
     </div>
   </section>
@@ -285,22 +397,21 @@
         <h3>Life Time Premium</h3>
         <p class="price">₹80 / Life Time</p>
         <ul class="features">
-          <li>Unlimited access to all premium videos</li>
-          <li>New content added weekly</li>
-          <li>Private and secure delivery via bot</li>
-          <li>Instant access upon subscription</li>
-          <li>HD quality streaming</li>
+          <li>Unlimited premium video access</li>
+          <li>New exclusive drops every week</li>
+          <li>Ultra-private Telegram bot delivery</li>
+          <li>Instant unlock – no waiting</li>
+          <li>HD / 4K quality + no ads</li>
+          <li>Priority support & updates</li>
         </ul>
-        <a href="https://t.me/dark4u21" class="btn">
-          Subscribe Now @dark4u12
-        </a>
-        <p class="note">Click the button to join via Telegram – quick and easy setup.</p>
+        <a href="https://t.me/dark4u21" class="btn">Join Now @dark4u12</a>
+        <p class="note">One-click Telegram join – secure & instant setup.</p>
       </div>
     </div>
   </section>
 
   <section class="testimonials-section">
-    <h2>What Our Members Are Saying</h2>
+    <h2>Members Love Dark4U</h2>
     <div class="testimonials-grid">
 
       <div class="testimonial-card">
@@ -308,7 +419,7 @@
           <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Rahul K." class="avatar">
           <div>
             <p class="testimonial-text">
-              Bhai content next level hai! Daily new videos mil rahe hain, quality bhi top class. ₹80 mein itna kuch? Worth every paisa. Ab tak ka best decision tha premium lena.
+              Content literally next level! Daily fresh uploads, insane quality. ₹80 mein itna value? Best decision ever. Dark4U top tier hai bhai.
             </p>
           </div>
         </div>
@@ -320,11 +431,11 @@
           <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Vikram S." class="avatar">
           <div>
             <p class="testimonial-text">
-              Finally ek aisa channel jahan privacy 100% hai aur har hafte fresh maal. Bot delivery super fast. Pehle free groups join karta tha, sab bakwas. Yeh real deal hai!
+              Privacy 100%, bot delivery lightning fast, har hafte fresh maal. Free groups sab scam lagte hain ab. Yeh real premium feel deta hai!
             </p>
           </div>
         </div>
-        <p class="testimonial-author">Vikram S. <span>– Premium since launch</span></p>
+        <p class="testimonial-author">Vikram S. <span>– Since launch</span></p>
       </div>
 
       <div class="testimonial-card">
@@ -332,7 +443,7 @@
           <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Amit P." class="avatar">
           <div>
             <p class="testimonial-text">
-              HD videos, no ads, no waiting. Collection bohot badi hai aur har taste ke liye kuch na kuch. Monthly plan le liya aur ab regret nahi. Sabko recommend kar raha hoon!
+              No ads, no buffering, massive collection, har taste ke liye perfect. Monthly liya aur ab life change ho gayi. Sabko bol raha hoon join karo!
             </p>
           </div>
         </div>
@@ -344,7 +455,7 @@
           <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Neha R." class="avatar">
           <div>
             <p class="testimonial-text">
-              Best investment of 80 rupees per month. Content exclusive hai jo kahin nahi milta. Delivery private aur safe. Thank you Dark4U team!
+              80 rupaye monthly mein itna exclusive content kahin nahi milta. Safe, private, aur addictive. Dark4U team – respect!
             </p>
           </div>
         </div>
@@ -353,6 +464,21 @@
 
     </div>
   </section>
+
+  <script>
+    // Simple scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.card').forEach(card => {
+      observer.observe(card);
+    });
+  </script>
 
 </body>
 </html>
