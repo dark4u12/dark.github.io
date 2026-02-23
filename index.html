@@ -9,11 +9,11 @@
       --bg: #0a0a0a;
       --card-bg: #111111;
       --text: #ffffff;
-      --text-light: #dddddd;
-      --accent: #ff0066;      /* Hot seductive pink */
-      --accent-hover: #ff3366;
-      --glow: 0 0 20px rgba(255, 0, 102, 0.4);
-      --shadow: 0 8px 30px rgba(0,0,0,0.6);
+      --text-light: #e0e0e0;
+      --accent: #c41e3a;      /* Seductive crimson red */
+      --accent-hover: #e91e63; /* Hot pink-red glow */
+      --glow: 0 0 25px rgba(233, 30, 99, 0.5);
+      --shadow: 0 10px 35px rgba(0,0,0,0.7);
     }
     * { box-sizing: border-box; margin:0; padding:0; }
     body {
@@ -24,141 +24,143 @@
       min-height: 100vh;
     }
     header {
-      padding: 80px 20px 60px;
+      padding: 90px 20px 70px;
       background: linear-gradient(to bottom, #000, var(--bg));
       text-align: center;
     }
     h1 {
-      font-size: clamp(2.5em, 8vw, 4em);
+      font-size: clamp(2.8em, 9vw, 4.5em);
       color: var(--accent);
-      text-shadow: 0 0 20px var(--accent);
-      margin-bottom: 15px;
+      text-shadow: 0 0 25px var(--accent);
+      margin-bottom: 20px;
     }
     .tagline {
-      font-size: clamp(1.3em, 5vw, 1.8em);
+      font-size: clamp(1.4em, 5vw, 2em);
       color: var(--text-light);
       font-style: italic;
-      margin-bottom: 30px;
+      margin-bottom: 35px;
     }
     .intro {
       max-width: 900px;
       margin: 0 auto 50px;
-      font-size: clamp(1.1em, 4vw, 1.4em);
+      font-size: clamp(1.15em, 4.5vw, 1.45em);
       color: var(--text-light);
     }
-    .highlight { color: var(--accent); font-weight: bold; }
+    .highlight { color: var(--accent-hover); font-weight: bold; }
 
-    /* Demo Videos - Responsive Grid */
+    /* Demo Videos Section - Responsive */
     .demo-section {
-      padding: 60px 20px;
+      padding: 70px 20px;
       background: var(--card-bg);
     }
     .demo-section h2 {
-      font-size: clamp(2em, 6vw, 3em);
+      font-size: clamp(2.2em, 7vw, 3.2em);
       color: var(--accent);
-      margin-bottom: 40px;
+      margin-bottom: 50px;
       text-align: center;
-      text-shadow: 0 0 15px var(--accent);
+      text-shadow: 0 0 20px var(--accent);
     }
     .video-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 30px;
+      gap: 35px;
       max-width: 1200px;
       margin: 0 auto;
     }
     .video-card {
       background: #1a1a1a;
-      border-radius: 16px;
+      border-radius: 18px;
       overflow: hidden;
       box-shadow: var(--shadow);
       transition: all 0.4s ease;
-      border: 1px solid rgba(255,0,102,0.1);
+      border: 1px solid rgba(233,30,99,0.15);
     }
     .video-card:hover {
-      transform: translateY(-12px);
+      transform: translateY(-15px);
       box-shadow: var(--glow);
-      border-color: var(--accent);
+      border-color: var(--accent-hover);
     }
     .video-wrapper {
       position: relative;
-      padding-bottom: 56.25%;
+      padding-bottom: 56.25%; /* Keeps 16:9 ratio */
       height: 0;
+      background: #000; /* Placeholder bg */
     }
-    .video-wrapper iframe {
+    video {
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
+      object-fit: cover;
     }
     .video-title {
-      padding: 15px;
-      font-size: 1.2em;
-      background: rgba(0,0,0,0.6);
+      padding: 18px;
+      font-size: 1.25em;
+      background: rgba(0,0,0,0.7);
       text-align: center;
     }
 
     /* Subscribe Section */
     .subscribe-section {
-      padding: 80px 20px;
+      padding: 90px 20px;
       text-align: center;
     }
     .subscribe-section h2 {
-      font-size: clamp(2.5em, 7vw, 3.5em);
+      font-size: clamp(2.8em, 8vw, 4em);
       color: var(--accent);
-      margin-bottom: 40px;
+      margin-bottom: 45px;
     }
     .price-card {
       background: var(--card-bg);
       border: 2px solid var(--accent);
-      border-radius: 24px;
-      padding: 40px 25px;
-      max-width: 450px;
+      border-radius: 28px;
+      padding: 45px 30px;
+      max-width: 480px;
       margin: 0 auto;
       box-shadow: var(--shadow);
       transition: all 0.4s;
     }
     .price-card:hover {
-      transform: scale(1.03);
+      transform: scale(1.04);
       box-shadow: var(--glow);
     }
     .price {
-      font-size: clamp(2em, 6vw, 3em);
-      color: var(--accent);
-      margin: 20px 0;
+      font-size: clamp(2.2em, 7vw, 3.2em);
+      color: var(--accent-hover);
+      margin: 25px 0;
     }
     .features {
       list-style: none;
-      font-size: 1.2em;
-      margin: 25px 0;
+      font-size: 1.25em;
+      margin: 30px 0;
     }
-    .features li { margin: 12px 0; }
+    .features li { margin: 15px 0; }
     .btn {
       display: inline-block;
       background: linear-gradient(135deg, var(--accent), var(--accent-hover));
       color: white;
-      padding: 18px 60px;
-      font-size: clamp(1.2em, 4vw, 1.5em);
+      padding: 20px 70px;
+      font-size: clamp(1.3em, 5vw, 1.6em);
       text-decoration: none;
-      border-radius: 50px;
+      border-radius: 60px;
       box-shadow: var(--glow);
       transition: all 0.4s;
       font-weight: bold;
     }
     .btn:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 40px var(--accent);
+      transform: scale(1.1);
+      box-shadow: 0 0 50px var(--accent-hover);
       background: linear-gradient(135deg, var(--accent-hover), var(--accent));
     }
     .note {
-      margin-top: 20px;
-      font-size: 1.1em;
+      margin-top: 25px;
+      font-size: 1.15em;
       color: var(--text-light);
     }
 
-    /* Responsive Adjustments */
+    /* Responsive */
     @media (min-width: 600px) {
       .video-grid { grid-template-columns: repeat(2, 1fr); }
-      header { padding: 100px 40px 80px; }
+      header, .subscribe-section { padding-left: 40px; padding-right: 40px; }
     }
     @media (min-width: 900px) {
       .video-grid { grid-template-columns: repeat(3, 1fr); }
@@ -171,53 +173,68 @@
   <!-- Premium Intro -->
   <header>
     <h1>Dark4U Premium</h1>
-    <p class="tagline">Andhera Jo Tujhe Chhoo Jaaye... 🔥</p>
+    <p class="tagline">Andhera Jo Tujhe Andar Tak Chhoo Jaaye... 🔥</p>
     <div class="intro">
-      Sirf selected logon ke liye exclusive HD content – wo sab jo raat mein sapne disturb kar de. <br>
-      Weekly garam surprises, private access, aur wo maza jo free mein nahi milta. <br><br>
-      Ek baar andar aa gaya, toh bahar nahi nikal payega... <span class="highlight">Ready hai tempt hone ke liye?</span> 😈💋
+      Exclusive HD content sirf tere jaise selected logon ke liye – wo garam raaz jo raat bhar jagaye rakhe. <br>
+      Weekly naye temptations, private bot delivery, aur wo maza jo kahin aur nahi milega. <br><br>
+      Ek baar taste kar liya... toh addiction ho jayegi. <span class="highlight">Tempted feel kar raha hai?</span> 😈💋
     </div>
   </header>
 
   <!-- Demo Videos -->
   <section class="demo-section">
-    <h2>Thoda Sa Temptation... 😏</h2>
+    <h2>Thoda Sa Tempt Kar Lo... 😏</h2>
     <div class="video-grid">
 
       <div class="video-card">
         <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" title="Teaser 1" frameborder="0" allowfullscreen></iframe>
+          <video controls>
+            <source src="YOUR_DEMO_LINK_1.mp4" type="video/mp4">
+            Browser video support nahi kar raha.
+          </video>
         </div>
-        <p class="video-title">Dark Teaser 1 – Shuruaat Garam</p>
+        <p class="video-title">Dark Teaser 1 – Garam Shuruaat</p>
       </div>
 
       <div class="video-card">
         <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="Teaser 2" frameborder="0" allowfullscreen></iframe>
+          <video controls>
+            <source src="YOUR_DEMO_LINK_2.mp4" type="video/mp4">
+            Browser video support nahi kar raha.
+          </video>
         </div>
         <p class="video-title">Teaser 2 – Dil Ko Chhed De</p>
       </div>
 
       <div class="video-card">
         <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="Teaser 3" frameborder="0" allowfullscreen></iframe>
+          <video controls>
+            <source src="YOUR_DEMO_LINK_3.mp4" type="video/mp4">
+            Browser video support nahi kar raha.
+          </video>
         </div>
-        <p class="video-title">Teaser 3 – Zyada Chahiye Na?</p>
+        <p class="video-title">Teaser 3 – Aur Zyada Chahiye?</p>
       </div>
 
       <div class="video-card">
         <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" title="Teaser 4" frameborder="0" allowfullscreen></iframe>
+          <video controls>
+            <source src="YOUR_DEMO_LINK_4.mp4" type="video/mp4">
+            Browser video support nahi kar raha.
+          </video>
         </div>
         <p class="video-title">Teaser 4 – Last Temptation</p>
       </div>
 
-      <!-- 5th optional – delete if not needed -->
+      <!-- Optional 5th – nahi chahiye toh delete kar dena -->
       <div class="video-card">
         <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_5" title="Teaser 5" frameborder="0" allowfullscreen></iframe>
+          <video controls>
+            <source src="YOUR_DEMO_LINK_5.mp4" type="video/mp4">
+            Browser video support nahi kar raha.
+          </video>
         </div>
-        <p class="video-title">Bonus – Sirf Dark4U Members Ke Liye</p>
+        <p class="video-title">Bonus Teaser – Sirf Dark4U Ke Liye</p>
       </div>
 
     </div>
@@ -225,7 +242,7 @@
 
   <!-- Subscribe -->
   <section class="subscribe-section">
-    <h2>Full Dark Access Chahiye? 💦</h2>
+    <h2>Full Dark Temptation Chahiye? 💦</h2>
     <div class="price-card">
       <h3>Dark4U Premium Subscription</h3>
       <p class="price">₹499 / Month</p>
@@ -238,11 +255,11 @@
       <a href="https://t.me/dark4u?start=premium" class="btn">
         Abhi Join Kar @dark4u
       </a>
-      <p class="note">Telegram pe click kar – bot se direct videos paa! 😈</p>
+      <p class="note">Telegram pe click kar – bot se direct videos tere paas! 😈</p>
     </div>
   </section>
 
-  <footer style="padding:50px 20px; background:#000; font-size:0.9em; text-align:center;">
+  <footer style="padding:60px 20px; background:#000; font-size:0.95em; text-align:center;">
     © 2026 Dark4U Premium – 18+ Only | All Rights Reserved
   </footer>
 
