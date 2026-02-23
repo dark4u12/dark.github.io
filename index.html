@@ -6,80 +6,89 @@
   <title>Dark4U Premium Exclusive 🔥</title>
   <style>
     :root {
-      --bg: #0f0f0f;
-      --card-bg: rgba(25, 25, 35, 0.4);
-      --text: #f5f5f5;
-      --text-light: #c0c0c0;
-      --accent: #c62828;          /* Seductive crimson */
-      --accent-hover: #e91e63;    /* Hot pink-red */
-      --glow: 0 0 20px rgba(233, 30, 99, 0.4);
-      --shadow: 0 8px 25px rgba(0,0,0,0.6);
-      --border: 1px solid rgba(233, 30, 99, 0.25);
+      --bg: #0a0a0a;                /* Deep premium black */
+      --card-bg: #111111;           /* Slightly lighter for cards */
+      --text: #f8f8f8;              /* Crisp white */
+      --text-light: #bbbbbb;        /* Soft gray for secondary */
+      --accent: #c62828;            /* Seductive crimson red */
+      --accent-hover: #e91e63;      /* Hot pink-red glow on hover */
+      --glow: 0 0 15px rgba(233, 30, 99, 0.35);
+      --shadow: 0 6px 20px rgba(0,0,0,0.7);
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
-      font-family: Arial, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
     header {
-      padding: 100px 20px 70px;
+      padding: 120px 20px 80px;
       text-align: center;
-      background: linear-gradient(to bottom, #000, var(--bg));
+      background: linear-gradient(to bottom, #000000, var(--bg));
     }
     h1 {
-      font-size: clamp(3em, 10vw, 4.5em);
+      font-size: clamp(3.5em, 12vw, 5em);
       color: var(--accent);
-      margin-bottom: 15px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      text-shadow: 0 4px 12px rgba(198, 40, 40, 0.4);
+      margin-bottom: 0.3em;
     }
     .tagline {
-      font-size: clamp(1.4em, 5vw, 1.8em);
+      font-size: clamp(1.6em, 6vw, 2.2em);
       color: var(--text-light);
       font-style: italic;
-      margin-bottom: 30px;
+      font-weight: 500;
+      margin-bottom: 1.5em;
+      opacity: 0.95;
     }
     .intro {
-      max-width: 900px;
-      margin: 0 auto 50px;
-      font-size: clamp(1.1em, 4vw, 1.3em);
+      max-width: 850px;
+      margin: 0 auto 3em;
+      font-size: clamp(1.15em, 4.5vw, 1.4em);
+      color: var(--text-light);
     }
-    .highlight { color: var(--accent-hover); }
+    .highlight {
+      color: var(--accent-hover);
+      font-weight: bold;
+      text-shadow: 0 0 8px var(--accent-hover);
+    }
 
-    /* Subtle Glass Cards */
-    .glass {
+    /* Subtle Cards */
+    .card {
       background: var(--card-bg);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: var(--border);
-      border-radius: 20px;
+      border-radius: 16px;
       box-shadow: var(--shadow);
+      overflow: hidden;
       transition: all 0.4s ease;
+      border: 1px solid rgba(233, 30, 99, 0.15);
     }
-    .glass:hover {
-      transform: translateY(-10px);
+    .card:hover {
+      transform: translateY(-8px);
       box-shadow: var(--glow);
       border-color: var(--accent-hover);
     }
 
-    /* Demo Section */
+    /* Demo Videos */
     .demo-section {
-      padding: 60px 20px;
+      padding: 70px 20px;
     }
     .demo-section h2 {
       text-align: center;
-      font-size: clamp(2.2em, 7vw, 3em);
+      font-size: clamp(2.5em, 8vw, 3.5em);
       color: var(--accent);
-      margin-bottom: 40px;
+      margin-bottom: 3em;
+      font-weight: 800;
     }
     .video-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 30px;
+      gap: 2.5em;
       max-width: 1200px;
       margin: 0 auto;
     }
-    .video-card .glass { padding: 15px; }
+    .video-card .card { padding: 1em; }
     .video-wrapper {
       position: relative;
       padding-bottom: 56.25%;
@@ -89,70 +98,102 @@
     }
     video {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
     }
     .video-title {
       text-align: center;
-      padding: 15px 0;
-      font-size: 1.2em;
+      padding: 1em 0;
+      font-size: 1.25em;
+      font-weight: 600;
     }
 
-    /* Subscribe */
+    /* Subscribe Section */
     .subscribe-section {
-      padding: 80px 20px;
+      padding: 90px 20px;
       text-align: center;
     }
-    .price-card .glass {
-      max-width: 450px;
+    .price-card .card {
+      max-width: 460px;
       margin: 0 auto;
-      padding: 40px 25px;
+      padding: 3em 2em;
     }
     .price {
-      font-size: clamp(2.5em, 8vw, 3.5em);
+      font-size: clamp(2.8em, 9vw, 4em);
       color: var(--accent-hover);
-      margin: 20px 0;
+      font-weight: 900;
+      margin: 1em 0;
+    }
+    .features {
+      list-style: none;
+      font-size: 1.25em;
+      margin: 2em 0;
+    }
+    .features li {
+      margin: 0.8em 0;
+      position: relative;
+      padding-left: 1.8em;
+    }
+    .features li::before {
+      content: '🔥';
+      position: absolute;
+      left: 0;
+      font-size: 1.2em;
     }
     .btn {
       display: inline-block;
       background: linear-gradient(135deg, var(--accent), var(--accent-hover));
       color: white;
-      padding: 15px 50px;
-      font-size: 1.4em;
+      padding: 1em 3.5em;
+      font-size: 1.5em;
+      font-weight: bold;
       text-decoration: none;
       border-radius: 50px;
       box-shadow: var(--glow);
-      transition: all 0.4s;
+      transition: all 0.4s ease;
     }
     .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px var(--accent-hover);
+      transform: scale(1.08);
+      box-shadow: 0 0 35px var(--accent-hover);
+    }
+    .note {
+      margin-top: 1.5em;
+      font-size: 1.15em;
+      color: var(--text-light);
     }
 
-    @media (min-width: 600px) { .video-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 900px) { .video-grid { grid-template-columns: repeat(3, 1fr); } }
+    /* Responsive */
+    @media (min-width: 640px) {
+      .video-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .video-grid { grid-template-columns: repeat(3, 1fr); }
+      header { padding: 140px 40px 100px; }
+    }
   </style>
 </head>
 <body>
 
   <header>
     <h1>Dark4U Premium</h1>
-    <p class="tagline">Andhera Jo Tujhe Andar Tak Le Jaaye... 🔥</p>
+    <p class="tagline">Andhera Jo Tujhe Puri Tarah Se Le Lega... 🔥</p>
     <div class="intro">
-      Exclusive HD content sirf tere liye – garam raaz, weekly surprises, private access. <br>
-      Yeh maza free mein nahi milta. Ek baar try kiya toh addicted ho jayega. <span class="highlight">Ready hai?</span> 😈💋
+      Sirf tere jaise logon ke liye exclusive HD temptations – wo garam raaz jo raat bhar jagaye rakhe. <br>
+      Weekly intense surprises, private bot delivery, aur wo maza jo kahin aur nahi milega. <br><br>
+      Ek baar andar aa gaya... toh bahar nahi nikal payega. <span class="highlight">Ab resist mat kar...</span> 😈💋
     </div>
   </header>
 
   <section class="demo-section">
-    <h2>Thoda Sa Maza Le Lo... 😏</h2>
+    <h2>Thoda Sa Tempt Kar Lo... 😏</h2>
     <div class="video-grid">
 
       <div class="video-card">
-        <div class="glass">
+        <div class="card">
           <div class="video-wrapper">
-            <video controls>
+            <video controls preload="metadata">
               <source src="YOUR_DEMO_LINK_1.mp4" type="video/mp4">
               Video nahi chal raha.
             </video>
@@ -161,27 +202,27 @@
         </div>
       </div>
 
-      <!-- Baaki 3-4 cards copy-paste kar dena same structure se -->
+      <!-- Baaki videos ke cards yahan copy-paste kar dena same tarah se -->
 
     </div>
   </section>
 
   <section class="subscribe-section">
-    <h2>Full Access Chahiye? 💦</h2>
+    <h2>Poora Access Chahiye? 💦</h2>
     <div class="price-card">
-      <div class="glass">
+      <div class="card">
         <h3>Premium Subscription</h3>
         <p class="price">₹499 / Month</p>
-        <ul style="list-style:none; margin:20px 0; font-size:1.2em;">
-          <li>Unlimited HD Videos</li>
-          <li>Weekly New Content</li>
+        <ul class="features">
+          <li>Unlimited HD Exclusive Videos</li>
+          <li>Weekly Fresh & Hot Uploads</li>
           <li>Private Bot Delivery 🔥</li>
-          <li>Instant Access</li>
+          <li>Instant Secret Access</li>
         </ul>
         <a href="https://t.me/dark4u?start=premium" class="btn">
           Abhi Join Kar @dark4u
         </a>
-        <p style="margin-top:20px; color:var(--text-light);">Telegram pe click kar – videos direct tere paas!</p>
+        <p class="note">Telegram pe click kar – bot se direct videos paa! 😈</p>
       </div>
     </div>
   </section>
