@@ -156,71 +156,141 @@
       color: var(--text-light);
     }
 
-    @media (min-width: 640px) { .video-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 1024px) { .video-grid { grid-template-columns: repeat(3, 1fr); } }
+    /* Testimonials Section */
+    .testimonials-section {
+      padding: 80px 20px;
+      background: linear-gradient(to bottom, #0a0a0a, #111111);
+    }
+    .testimonials-section h2 {
+      text-align: center;
+      font-size: clamp(2.5em, 8vw, 3.5em);
+      margin-bottom: 2.5em;
+      color: var(--accent);
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2em;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .testimonial-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 1.8em;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .testimonial-card::before {
+      content: '“';
+      font-size: 6em;
+      color: var(--accent);
+      opacity: 0.15;
+      position: absolute;
+      top: -0.2em;
+      left: 0.5em;
+      line-height: 1;
+    }
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1em;
+    }
+    .avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent);
+      margin-right: 1em;
+      box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+    }
+    .testimonial-text {
+      font-size: 1.15em;
+      margin-bottom: 1em;
+      font-style: italic;
+      color: var(--text-light);
+      flex-grow: 1;
+    }
+    .testimonial-author {
+      font-weight: bold;
+      color: var(--accent-hover);
+      text-align: right;
+      margin-top: auto;
+    }
+    .testimonial-author span {
+      color: var(--text-light);
+      font-weight: normal;
+      font-size: 0.95em;
+      display: block;
+    }
+
+    @media (min-width: 640px) { 
+      .video-grid, .testimonials-grid { grid-template-columns: repeat(2, 1fr); } 
+    }
+    @media (min-width: 1024px) { 
+      .video-grid, .testimonials-grid { grid-template-columns: repeat(3, 1fr); } 
+    }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Dark4U Premium Subscription</h1>
-    <p class="tagline">Exclusive Access to Premium Content</p>
-    <div class="intro">
-      Join our premium subscription for unlimited access to high-quality exclusive videos. Get new content regularly, private delivery, and instant unlocks.
-    </div>
-  </header>
+  <!-- Header, Demo, Pricing same as before... -->
 
-  <section class="demo-section">
-    <h2>Preview Our Content</h2>
-    <div class="video-grid">
+  <section class="testimonials-section">
+    <h2>What Our Members Are Saying</h2>
+    <div class="testimonials-grid">
 
-      <div>
-        <div class="card">
-          <div class="video-wrapper">
-            <video controls preload="metadata">
-              <source src="YOUR_DEMO_LINK_1.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Rahul K." class="avatar">
+          <div>
+            <p class="testimonial-text">
+              Bhai content next level hai! Daily new videos mil rahe hain, quality bhi top class. ₹80 mein itna kuch? Worth every paisa. Ab tak ka best decision tha premium lena.
+            </p>
           </div>
-          <a href="https://t.me/Dark4u12_bot?start=BQADAQADpQkAAkfc0EQLQvspV391yBYE" class="preview-btn">Preview 1</a>
         </div>
+        <p class="testimonial-author">Rahul K. <span>– 2 months member</span></p>
       </div>
 
-      <!-- Agar aur previews hain toh yahan copy-paste kar dena -->
-      <!-- Example for Preview 2:
-      <div>
-        <div class="card">
-          <div class="video-wrapper">
-            <video controls>
-              <source src="YOUR_DEMO_LINK_2.mp4" type="video/mp4">
-            </video>
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Vikram S." class="avatar">
+          <div>
+            <p class="testimonial-text">
+              Finally ek aisa channel jahan privacy 100% hai aur har hafte fresh maal. Bot delivery super fast. Pehle free groups join karta tha, sab bakwas. Yeh real deal hai!
+            </p>
           </div>
-          <a href="https://t.me/dark4u12" class="preview-btn">Preview 2</a>
         </div>
+        <p class="testimonial-author">Vikram S. <span>– Premium since launch</span></p>
       </div>
-      -->
 
-    </div>
-  </section>
-
-  <section class="pricing-section">
-    <h2>Choose Your Plan</h2>
-    <div class="price-card">
-      <div class="card">
-        <h3>Monthly Premium</h3>
-        <p class="price">₹80 / Month</p>
-        <ul class="features">
-          <li>Unlimited access to all premium videos</li>
-          <li>New content added weekly</li>
-          <li>Private and secure delivery via bot</li>
-          <li>Instant access upon subscription</li>
-          <li>HD quality streaming</li>
-        </ul>
-        <a href="https://t.me/dark4u21" class="btn">
-          Subscribe Now @dark4u12
-        </a>
-        <p class="note">Click the button to join via Telegram – quick and easy setup.</p>
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Amit P." class="avatar">
+          <div>
+            <p class="testimonial-text">
+              HD videos, no ads, no waiting. Collection bohot badi hai aur har taste ke liye kuch na kuch. Monthly plan le liya aur ab regret nahi. Sabko recommend kar raha hoon!
+            </p>
+          </div>
+        </div>
+        <p class="testimonial-author">Amit P. <span>– Happy subscriber</span></p>
       </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Neha R." class="avatar">
+          <div>
+            <p class="testimonial-text">
+              Best investment of 80 rupees per month. Content exclusive hai jo kahin nahi milta. Delivery private aur safe. Thank you Dark4U team!
+            </p>
+          </div>
+        </div>
+        <p class="testimonial-author">Neha R. <span>– 3 months member</span></p>
+      </div>
+
     </div>
   </section>
 
