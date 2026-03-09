@@ -262,7 +262,7 @@
       color: var(--text-light);
     }
 
-    /* Testimonials */
+    /* Slider Section (replaced testimonials) */
     .testimonials-section {
       padding: 100px 20px;
       background: linear-gradient(to bottom, #0a0a1a, #050505);
@@ -273,87 +273,102 @@
       font-size: clamp(3em, 8vw, 4.2em);
       margin-bottom: 3.5em;
       color: var(--accent);
+      text-shadow: 0 0 30px rgba(59,130,246,0.4);
     }
 
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2.5em;
-      max-width: 1300px;
-      margin: 0 auto;
-    }
-
-    .testimonial-card {
-      background: var(--card-bg);
-      backdrop-filter: var(--blur);
-      -webkit-backdrop-filter: var(--blur);
-      border-radius: 20px;
-      padding: 2.2em;
-      border: 1px solid rgba(96,165,250,0.15);
+    /* Slideshow container */
+    .slideshow-container {
+      max-width: 1000px;
       position: relative;
-      transition: all 0.5s ease;
+      margin: auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
     }
 
-    .testimonial-card:hover {
-      transform: translateY(-10px);
-      box-shadow: var(--glow);
+    /* Hide the images by default */
+    .mySlides {
+      display: none;
     }
 
-    .testimonial-card::before {
-      content: '“';
-      font-size: 8em;
-      color: var(--accent);
-      opacity: 0.12;
+    /* Next & previous buttons */
+    .prev, .next {
+      cursor: pointer;
       position: absolute;
-      top: -0.3em;
-      left: 0.4em;
-      line-height: 1;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 24px;
+      transition: 0.6s ease;
+      border-radius: 0 8px 8px 0;
+      user-select: none;
+      background: rgba(0,0,0,0.4);
     }
 
-    .testimonial-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 1.4em;
+    .next {
+      right: 0;
+      border-radius: 8px 0 0 8px;
     }
 
-    .avatar {
-      width: 70px;
-      height: 70px;
+    .prev:hover, .next:hover {
+      background: rgba(59,130,246,0.7);
+    }
+
+    /* Caption text */
+    .text {
+      color: #fff;
+      font-size: 1.5em;
+      padding: 12px 20px;
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      background: rgba(0,0,0,0.5);
+      border-radius: 0 0 20px 20px;
+      font-weight: bold;
+    }
+
+    /* Dots / bullets */
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 6px;
+      background-color: #bbb;
       border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--accent);
-      margin-right: 1.2em;
-      box-shadow: 0 0 20px rgba(59,130,246,0.5);
+      display: inline-block;
+      transition: background-color 0.6s ease;
     }
 
-    .testimonial-text {
-      font-size: 1.2em;
-      margin-bottom: 1.2em;
-      font-style: italic;
-      color: var(--text-light);
-      flex-grow: 1;
+    .active, .dot:hover {
+      background-color: var(--accent);
     }
 
-    .testimonial-author {
-      font-weight: 700;
-      color: var(--accent-glow);
-      text-align: right;
-      margin-top: auto;
+    /* Fade animation */
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.5s;
     }
 
-    .testimonial-author span {
-      color: var(--text-light);
-      font-weight: normal;
-      font-size: 0.95em;
-      display: block;
+    @keyframes fade {
+      from {opacity: .4} 
+      to {opacity: 1}
+    }
+
+    @media (max-width: 768px) {
+      .prev, .next {font-size: 18px; padding: 12px;}
+      .text {font-size: 1.2em; padding: 10px;}
     }
 
     @media (min-width: 640px) { 
-      .video-grid, .testimonials-grid { grid-template-columns: repeat(2, 1fr); } 
+      .video-grid { grid-template-columns: repeat(2, 1fr); } 
     }
 
     @media (min-width: 1024px) { 
-      .video-grid, .testimonials-grid { grid-template-columns: repeat(3, 1fr); } 
+      .video-grid { grid-template-columns: repeat(3, 1fr); } 
       header { padding-top: 160px; }
     }
   </style>
@@ -372,14 +387,13 @@
     <h2>Content Previews</h2>
     <div class="video-grid">
 
-          <a href="https://t.me/dark4u12Bot?start=BQADAQAD_AoAAl_CGUV3j9hDs1LEehYE" class="preview-btn">Only Fans Demo</a>
+      <a href="https://t.me/dark4u12Bot?start=BQADAQAD_AoAAl_CGUV3j9hDs1LEehYE" class="preview-btn">Only Fans Demo</a>
 
-      <!-- Add more video cards here as needed -->
-<a href="https://t.me/dark4u12Bot?start=BQADAQADPAsAAl_CGUURgb69_rLKVxYE" class="preview-btn">Desi Demo</a>
+      <a href="https://t.me/dark4u12Bot?start=BQADAQADPAsAAl_CGUURgb69_rLKVxYE" class="preview-btn">Desi Demo</a>
 
-<a href="https://t.me/dark4u12Bot?start=BQADAQADYwsAAl_CGUUPY_QsOQqGSBYE" class="preview-btn">CP Demo</a>
+      <a href="https://t.me/dark4u12Bot?start=BQADAQADYwsAAl_CGUUPY_QsOQqGSBYE" class="preview-btn">CP Demo</a>
 
-<a href="https://t.me/Dark4usub_bot?start=BQADAQADGBcAAjVoWUWAz_YOLV4rxhYE" class="preview-btn">Girl Demo</a>
+      <a href="https://t.me/Dark4usub_bot?start=BQADAQADGBcAAjVoWUWAz_YOLV4rxhYE" class="preview-btn">Girl Demo</a>
 
     </div>
   </section>
@@ -405,62 +419,51 @@
   </section>
 
   <section class="testimonials-section">
-    <h2>Members Love Dark4U</h2>
-    <div class="testimonials-grid">
+    <h2>Exclusive Content Previews</h2>
+    <div class="slideshow-container">
 
-      <div class="testimonial-card">
-        <div class="testimonial-header">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Rahul K." class="avatar">
-          <div>
-            <p class="testimonial-text">
-              Content literally next level! Daily fresh uploads, insane quality. ₹80 mein itna value? Best decision ever. Dark4U top tier hai bhai.
-            </p>
-          </div>
-        </div>
-        <p class="testimonial-author">Rahul K. <span>– 2 months member</span></p>
+      <!-- Slide 1 -->
+      <div class="mySlides fade">
+        <img src="https://i.ibb.co/jkGMjv3J/IMG-20260308-WA0003.jpg" style="width:100%" alt="Content Preview 1">
+        <div class="text">OnlyFans Premium Drop</div>
       </div>
 
-      <div class="testimonial-card">
-        <div class="testimonial-header">
-          <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Vikram S." class="avatar">
-          <div>
-            <p class="testimonial-text">
-              Privacy 100%, bot delivery lightning fast, har hafte fresh maal. Free groups sab scam lagte hain ab. Yeh real premium feel deta hai!
-            </p>
-          </div>
-        </div>
-        <p class="testimonial-author">Vikram S. <span>– Since launch</span></p>
+      <!-- Slide 2 -->
+      <div class="mySlides fade">
+        <img src="https://justpaste.it/ndfgg" style="width:100%" alt="Content Preview 2">
+        <div class="text">Desi Exclusive Collection</div>
       </div>
 
-      <div class="testimonial-card">
-        <div class="testimonial-header">
-          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Amit P." class="avatar">
-          <div>
-            <p class="testimonial-text">
-              No ads, no buffering, massive collection, har taste ke liye perfect. Monthly liya aur ab life change ho gayi. Sabko bol raha hoon join karo!
-            </p>
-          </div>
-        </div>
-        <p class="testimonial-author">Amit P. <span>– Happy subscriber</span></p>
+      <!-- Slide 3 -->
+      <div class="mySlides fade">
+        <img src="https://example.com/your-image3.jpg" style="width:100%" alt="Content Preview 3">
+
+        <div class="text">High-Quality Specials</div>
       </div>
 
-      <div class="testimonial-card">
-        <div class="testimonial-header">
-          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Neha R." class="avatar">
-          <div>
-            <p class="testimonial-text">
-              80 rupaye monthly mein itna exclusive content kahin nahi milta. Safe, private, aur addictive. Dark4U team – respect!
-            </p>
-          </div>
-        </div>
-        <p class="testimonial-author">Neha R. <span>– 3 months member</span></p>
+      <!-- Slide 4 -->
+      <div class="mySlides fade">
+        <img src="https://postimg.cc/5XVsd8Dj" style="width:100%" alt="Content Preview 4">
+        <div class="text">Latest 4K Uploads</div>
       </div>
 
+      <!-- Next & previous buttons -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+
+    <!-- Dots below slider -->
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
     </div>
   </section>
 
   <script>
-    // Simple scroll reveal
+    // Scroll reveal for cards
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -472,6 +475,43 @@
     document.querySelectorAll('.card').forEach(card => {
       observer.observe(card);
     });
+
+    // Slideshow JavaScript
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+    }
+
+    // Auto slide every 4 seconds
+    setInterval(() => {
+      plusSlides(1);
+    }, 4000);
   </script>
 
 </body>
