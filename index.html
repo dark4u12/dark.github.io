@@ -87,7 +87,6 @@
       border-color: var(--accent-glow);
     }
 
-    /* Demo Section */
     .demo-section {
       padding: 100px 20px;
       background: linear-gradient(to bottom, #050505, #0f0f1f);
@@ -171,7 +170,6 @@
       background: linear-gradient(90deg, var(--accent-glow), var(--accent));
     }
 
-    /* Pricing */
     .pricing-section {
       padding: 100px 20px;
       text-align: center;
@@ -262,7 +260,6 @@
       color: var(--text-light);
     }
 
-    /* Slider Section (replaced testimonials) */
     .testimonials-section {
       padding: 100px 20px;
       background: linear-gradient(to bottom, #0a0a1a, #050505);
@@ -276,7 +273,6 @@
       text-shadow: 0 0 30px rgba(59,130,246,0.4);
     }
 
-    /* Slideshow container */
     .slideshow-container {
       max-width: 1000px;
       position: relative;
@@ -286,12 +282,10 @@
       box-shadow: var(--shadow);
     }
 
-    /* Hide the images by default */
     .mySlides {
       display: none;
     }
 
-    /* Next & previous buttons */
     .prev, .next {
       cursor: pointer;
       position: absolute;
@@ -317,7 +311,6 @@
       background: rgba(59,130,246,0.7);
     }
 
-    /* Caption text */
     .text {
       color: #fff;
       font-size: 1.5em;
@@ -331,7 +324,6 @@
       font-weight: bold;
     }
 
-    /* Dots / bullets */
     .dot {
       cursor: pointer;
       height: 15px;
@@ -347,7 +339,6 @@
       background-color: var(--accent);
     }
 
-    /* Fade animation */
     .fade {
       animation-name: fade;
       animation-duration: 1.5s;
@@ -437,7 +428,6 @@
       <!-- Slide 3 -->
       <div class="mySlides fade">
         <img src="https://example.com/your-image3.jpg" style="width:100%" alt="Content Preview 3">
-
         <div class="text">High-Quality Specials</div>
       </div>
 
@@ -476,7 +466,7 @@
       observer.observe(card);
     });
 
-    // Slideshow JavaScript
+    // Slideshow JavaScript (automatic scrolling band kar diya)
     let slideIndex = 1;
     showSlides(slideIndex);
 
@@ -508,10 +498,8 @@
       dots[slideIndex-1].className += " active";
     }
 
-    // Auto slide every 4 seconds
-    setInterval(() => {
-      plusSlides(1);
-    }, 4000);
+    // Yeh line comment out / hata diya gaya hai → ab auto nahi chalega
+    // setInterval(() => { plusSlides(1); }, 4000);
   </script>
 
 </body>
